@@ -27,16 +27,14 @@ wps-office-multilang
 
 snap install $snap_pack
 
-
+#flameshot
 echo "instalar flameshot? (N/s):"
 read instalar_flameshot_true
 if [$instalar_flameshot_true = "s"]; then
     snap install flameshot
 
 
-
-
-
+#gaming pack
 gaming_pack='
 steam
 wine-stable
