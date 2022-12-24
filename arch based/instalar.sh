@@ -7,6 +7,7 @@ pacman_pack='
 cmatrix
 neofetch
 lolcat
+flatpak
 '
 
 
@@ -51,9 +52,6 @@ wine-stable
 lutris
 ./heroic_2.5.2_amd64.deb
 '
-
-
-#TO_DO INSTALAR FLATPAK
 
 
 echo "instalar pacote gaming? (S/n):"
