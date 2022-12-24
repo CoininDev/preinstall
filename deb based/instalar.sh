@@ -6,7 +6,6 @@
 apt_pack='
 cmatrix
 neofetch
-lolcat
 ./google-chrome-stable_current_amd64.deb
 '
 
