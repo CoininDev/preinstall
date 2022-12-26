@@ -27,11 +27,15 @@ wps-office-multilang
 snap install $snap_pack
 
 #flameshot
-echo "instalar flameshot? (N/s):"
-read instalar_flameshot_true
-if [$instalar_flameshot_true = "s"]; then
-    snap install flameshot
-
+read -r -p "instalar flameshot? [s/N] " instalar_flameshot_resposta
+case $instalar_flameshot_resposta in
+    [sS][iI][mM][sS]) 
+        snap install flameshot
+        ;;
+    *)
+    	echo "flameshot pulado."
+        ;;
+esac
 
 #gaming pack
 gaming_pack='
@@ -40,9 +44,17 @@ wine-stable
 lutris
 ./heroic_2.5.2_amd64.deb
 '
-echo "instalar pacote gaming? (S/n):"
-read instalar_pacote_gaming_true
-if [$instalar_pacote_gaming_true != "n"]; then
-    add-apt-repository multiverse
-    add-apt-repository ppa:lutris-team/lutris
-    apt install $gaming_pack -y
+
+read -r -p "instalar flameshot? [s/N] " instalar_pacote_gaming_resposta
+case $instalar_pacote_gaming_resposta in
+    [sS][iI][mM][sS]) 
+        add-apt-repository multiverse	
+        add-apt-repository ppa:lutris-team/lutris
+        apt install $gaming_pack -y
+        ;;
+    *)
+    	echo "pacote gaming pulado."
+        ;;
+esac
+
+echo "tudo pronto! :)"
