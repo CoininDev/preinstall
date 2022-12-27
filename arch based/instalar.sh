@@ -40,11 +40,15 @@ wps-office-multilang
 snap install $snap_pack
 
 #flameshot
-echo "instalar flameshot? (N/s):"
-read instalar_flameshot_true
-if [$instalar_flameshot_true = "s"]; then
+read -r -p "instalar flameshot? (N/s):" instalar_flameshot
+case $instalar_flameshot in
+    [sS])
     snap install flameshot
-
+    ;;
+    
+    *)
+    echo "flameshot pulado."
+    ;;
 
 #gaming pack
 gaming_pack='
@@ -54,9 +58,15 @@ lutris
 '
 
 
-echo "instalar pacote gaming? (S/n):"
-read instalar_pacote_gaming_true
-if [$instalar_pacote_gaming_true != "n"]; then
+read -r -p "instalar pacote gaming? (S/n):" instalar_pac_gaming
+case $instalar_pac_gaming in 
+    [nN])
+    echo "pacote gaming pulado."
+    ;;
+    
+    *)
     flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     flatpak --user install flathub com.valvesoftware.Steam
-    apt install $gaming_pack -y
+    flatpak install $gaming_pack
+    ;;
+    
