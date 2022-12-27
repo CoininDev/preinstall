@@ -29,7 +29,7 @@ snap install $snap_pack
 #flameshot
 read -r -p "instalar flameshot? [s/N] " instalar_flameshot_resposta
 case $instalar_flameshot_resposta in
-    [sS][iI][mM][sS]) 
+    [sS]) 
         snap install flameshot
         ;;
     *)
@@ -45,16 +45,16 @@ lutris
 ./heroic_2.5.2_amd64.deb
 '
 
-read -r -p "instalar flameshot? [s/N] " instalar_pacote_gaming_resposta
+read -r -p "instalar pacote gaming? [S/n] " instalar_pacote_gaming_resposta
 case $instalar_pacote_gaming_resposta in
-    [sS][iI][mM][sS]) 
-        add-apt-repository multiverse	
-        add-apt-repository ppa:lutris-team/lutris
-        apt install $gaming_pack -y
+    [nN]) 
+        echo "pacote gaming pulado."
         ;;
     *)
-    	echo "pacote gaming pulado."
-        ;;
+	add-apt-repository multiverse
+	add-apt-repository ppa:lutris-team/lutris
+	apt install $gaming_pack -y
+	;;
 esac
 
 echo "tudo pronto! :)"
