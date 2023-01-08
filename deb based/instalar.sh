@@ -13,29 +13,22 @@ neofetch
 apt install $apt_pack -y
 
 
-#snap
-apt install snapd -y
+#flatpak
+apt install flatpak
+apt install gnome-software-plugin-flatpak #plugin para baixar apps pelo gnome-software futuramente
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo #flathub
 
-snap_pack='
-blender
-spotify
-discord
-code
-wps-office-multilang
+
+flat_pack='
+org.blender.Blender
+com.spotify.Client
+com.discordapp.Discord
+com.visualstudio.code
+org.onlyoffice.desktopeditors
+sh.ppy.osu
 '
 
-snap install $snap_pack
-
-#flameshot
-read -r -p "instalar flameshot? [s/N] " instalar_flameshot_resposta
-case $instalar_flameshot_resposta in
-    [sS]) 
-        snap install flameshot
-        ;;
-    *)
-    	echo "flameshot pulado."
-        ;;
-esac
+flatpak install flathub $flat_pack
 
 #gaming pack
 gaming_pack='
