@@ -12,6 +12,7 @@ flatpak
 
 
 pacman -S $pacman_pack
+flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 
 echo "instalar google chrome? (S/n)"
@@ -22,22 +23,18 @@ if [$instalar_pacote_gaming_true != "n"]; then
     echo "entre na pasta google-chrome pelo terminal e digite 'sudo pacman -U' e o nome do pacote que termina com '.pkg.tar.xz'"
 
 
-#snap
-cd snapd
-makepkg -si
-systemctl enable --now snapd.socket
-sudo ln -s /var/lib/snapd/snap /snap
-cd ..
 
-snap_pack='
-blender
-spotify
-discord
-code
-wps-office-multilang
+#flats
+flat_pack='
+org.blender.Blender
+com.spotify.Client
+com.discordapp.Discord
+com.visualstudio.code
+org.onlyoffice.desktopeditors
+sh.ppy.osu
 '
 
-snap install $snap_pack
+flatpak install flathub $flat_pack
 
 #flameshot
 read -r -p "instalar flameshot? (N/s):" instalar_flameshot
@@ -65,7 +62,6 @@ case $instalar_pac_gaming in
     ;;
     
     *)
-    flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     flatpak --user install flathub com.valvesoftware.Steam
     flatpak install $gaming_pack
     ;;
