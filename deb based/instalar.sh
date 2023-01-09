@@ -6,6 +6,7 @@
 apt_pack='
 cmatrix
 neofetch
+micro
 ./google-chrome-stable_current_amd64.deb
 '
 
@@ -46,8 +47,9 @@ case $instalar_pacote_gaming_resposta in
     *)
 	add-apt-repository multiverse
 	add-apt-repository ppa:lutris-team/lutris
+	apt update
 	apt install $gaming_pack -y
 	;;
 esac
 
-echo "tudo pronto! :)"
+echo "tudo pronto! :) Por favor, reinicie sua máquina para o funcionamento dos apps flatpak."
