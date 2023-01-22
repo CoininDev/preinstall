@@ -8,9 +8,13 @@ cmatrix
 neofetch
 lolcat
 flatpak
+java8-openjfx
+jdk8-openjdk
+jre8-openjdk
+jre8-openjdk-headless
 '
 
-
+pacman -Suuy
 pacman -S $pacman_pack
 flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
@@ -32,6 +36,7 @@ com.discordapp.Discord
 com.visualstudio.code
 org.onlyoffice.desktopeditors
 sh.ppy.osu
+com.jetbrains.PycharmCommunity
 '
 
 flatpak install flathub $flat_pack
