@@ -6,9 +6,11 @@
 apt_pack='
 cmatrix
 neofetch
-micro
+microaadadad
 python3-pip
 ./google-chrome-stable_current_amd64.deb
+openjdk-8-jre
+openjfx
 '
 
 
@@ -28,6 +30,7 @@ com.discordapp.Discord
 com.visualstudio.code
 org.onlyoffice.desktopeditors
 sh.ppy.osu
+com.jetbrains.PycharmCommunity
 '
 
 flatpak install flathub $flat_pack
