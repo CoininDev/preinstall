@@ -20,16 +20,16 @@ flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/fl
 
 
 
-#read -r -p "instalar google chrome? (S/n)" instalar_google_chrome
-#case $instalar_google_chrome in
-#	[nN])
-#	echo "google chrome pulado."
-#	;;
-#
-#	*)
-#    git clone https://aur.archlinux.org/google-chrome.git
-#    cd google-chrome
-#    makepkg -si
+read -r -p "instalar google chrome? (S/n)" instalar_google_chrome
+case $instalar_google_chrome in
+	[nN])
+	echo "google chrome pulado."
+	;;
+
+	*)
+    git clone https://aur.archlinux.org/google-chrome.git
+    cd google-chrome
+    makepkg -si
 
 
 
