@@ -8,10 +8,10 @@ cmatrix
 neofetch
 lolcat
 flatpak
-java8-openjfx
 jdk8-openjdk
 jre8-openjdk
 jre8-openjdk-headless
+git
 '
 
 pacman -Suuy
@@ -19,12 +19,17 @@ pacman -S $pacman_pack
 flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 
-echo "instalar google chrome? (S/n)"
-read instalar_pacote_gaming_true
-if [$instalar_pacote_gaming_true != "n"]; then
-    cd google-chrome
-    makepkg -s
-    echo "entre na pasta google-chrome pelo terminal e digite 'sudo pacman -U' e o nome do pacote que termina com '.pkg.tar.xz'"
+
+#read -r -p "instalar google chrome? (S/n)" instalar_google_chrome
+#case $instalar_google_chrome in
+#	[nN])
+#	echo "google chrome pulado."
+#	;;
+#
+#	*)
+#    git clone https://aur.archlinux.org/google-chrome.git
+#    cd google-chrome
+#    makepkg -si
 
 
 
@@ -36,7 +41,6 @@ com.discordapp.Discord
 com.visualstudio.code
 org.onlyoffice.desktopeditors
 sh.ppy.osu
-com.jetbrains.PycharmCommunity
 '
 
 flatpak install flathub $flat_pack
@@ -51,12 +55,11 @@ case $instalar_flameshot in
     *)
     echo "flameshot pulado."
     ;;
+esac
 
-#gaming pack
 gaming_pack='
 wine-stable
 lutris
-./heroic_2.5.2_amd64.deb
 '
 
 
@@ -70,4 +73,6 @@ case $instalar_pac_gaming in
     flatpak --user install flathub com.valvesoftware.Steam
     flatpak install $gaming_pack
     ;;
-    
+esac
+
+echo "tudo pronto :)"
